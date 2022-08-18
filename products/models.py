@@ -23,7 +23,7 @@ class Product(models.Model):
         null=True,
         blank=True,
     )
-    kcal_for_100 = models.DecimalField(
+    kcal = models.DecimalField(
         decimal_places=1,
         max_digits=5,
         null=False,
@@ -32,7 +32,7 @@ class Product(models.Model):
             validators.MinValueValidator(0, message='kcal for 100 must be greater than 0'),
         ],
     )
-    protein_for_100 = models.DecimalField(
+    protein = models.DecimalField(
         decimal_places=1,
         max_digits=5,
         null=False,
@@ -41,7 +41,7 @@ class Product(models.Model):
             validators.MinValueValidator(0, message='protein for 100 must be greater than 0'),
         ],
     )
-    carbo_for_100 = models.DecimalField(
+    carb = models.DecimalField(
         decimal_places=1,
         max_digits=5,
         null=False,
@@ -50,7 +50,7 @@ class Product(models.Model):
             validators.MinValueValidator(0, message='carbo for 100 must be greater than 0'),
         ],
     )
-    sugar_for_100 = models.DecimalField(
+    sugar = models.DecimalField(
         decimal_places=1,
         max_digits=5,
         null=False,
@@ -59,7 +59,7 @@ class Product(models.Model):
             validators.MinValueValidator(0, message='sugar for 100 must be greater than 0'),
         ],
     )
-    fat_for_100 = models.DecimalField(
+    fat = models.DecimalField(
         decimal_places=1,
         max_digits=5,
         null=False,
@@ -68,7 +68,7 @@ class Product(models.Model):
             validators.MinValueValidator(0, message='fat for 100 must be greater than 0'),
         ],
     )
-    saturated_fat_for_100 = models.DecimalField(
+    saturated_fat = models.DecimalField(
         decimal_places=1,
         max_digits=5,
         null=False,
