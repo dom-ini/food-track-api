@@ -102,5 +102,5 @@ class Product(models.Model):
         return super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.name} - kcal {self.kcal_for_100}/B {self.protein_for_100}' \
-               f'/WW {self.carbo_for_100}/T {self.fat_for_100}'
+        return f'{self.name} - kcal {self.kcal}/B {self.protein}' \
+               f'/WW {self.carb}/T {self.fat}'

@@ -10,8 +10,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     filterset_class = ProductFilter
     ordering_fields = [
-        'name', 'kcal_for_100', 'protein_for_100', 'carbo_for_100', 'sugar_for_100', 'fat_for_100',
-        'saturated_fat_for_100'
+        'name', 'kcal', 'protein', 'carb', 'fat',
     ]
     ordering = ['name']
 
