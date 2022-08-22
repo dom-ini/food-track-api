@@ -206,7 +206,10 @@ OLD_PASSWORD_FIELD_ENABLED = True
 JWT_AUTH_COOKIE = 'food-track-auth'
 JWT_AUTH_REFRESH_COOKIE = 'food-track-refresh-token'
 
-EMAIL_BACKEND = 'FoodTrack.backends.AsyncEmailBackend'
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'FoodTrack.backends.AsyncEmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
