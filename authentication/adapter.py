@@ -13,11 +13,10 @@ class CustomAccountAdapter(DefaultAccountAdapter):
 class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
     def pre_social_login(self, request, sociallogin):
         social_user = sociallogin.user
-        if social_user.id:
+        if social_user.id or not social_user.email:
             return
         try:
             user = User.objects.get(email=social_user.email)
-            sociallogin.state['process'] = 'connect'
-            perform_login(request, user, 'none')
+            sociallogin.connect(request, user)
         except User.DoesNotExist:
             pass
