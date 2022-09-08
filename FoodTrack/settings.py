@@ -200,6 +200,7 @@ SOCIALACCOUNT_EMAIL_REQUIRED = False
 SOCIALACCOUNT_QUERY_EMAIL = True
 
 ACCOUNT_ADAPTER = 'authentication.adapter.CustomAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'authentication.adapter.CustomSocialAccountAdapter'
 
 SITE_ID = 1
 
