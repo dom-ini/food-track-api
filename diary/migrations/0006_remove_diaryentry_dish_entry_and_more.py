@@ -4,25 +4,24 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('diary', '0005_alter_dishentry_options_dishentry_dish_and_more'),
+        ("diary", "0005_alter_dishentry_options_dishentry_dish_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='diaryentry',
-            name='dish_entry',
+            model_name="diaryentry",
+            name="dish_entry",
         ),
         migrations.RemoveField(
-            model_name='diaryentry',
-            name='entry_type',
+            model_name="diaryentry",
+            name="entry_type",
         ),
         migrations.RemoveField(
-            model_name='productentry',
-            name='dish',
+            model_name="productentry",
+            name="dish",
         ),
         migrations.DeleteModel(
-            name='DishEntry',
+            name="DishEntry",
         ),
     ]

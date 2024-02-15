@@ -4,26 +4,25 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('authentication', '0001_initial'),
+        ("authentication", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='profile',
-            name='daily_carb_goal',
+            model_name="profile",
+            name="daily_carb_goal",
         ),
         migrations.RemoveField(
-            model_name='profile',
-            name='daily_fat_goal',
+            model_name="profile",
+            name="daily_fat_goal",
         ),
         migrations.RemoveField(
-            model_name='profile',
-            name='daily_kcal_goal',
+            model_name="profile",
+            name="daily_kcal_goal",
         ),
         migrations.RemoveField(
-            model_name='profile',
-            name='daily_protein_goal',
+            model_name="profile",
+            name="daily_protein_goal",
         ),
     ]

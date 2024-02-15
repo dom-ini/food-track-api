@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0004_delete_dish'),
+        ("products", "0004_delete_dish"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='is_verified',
+            model_name="product",
+            name="is_verified",
             field=models.BooleanField(default=False),
         ),
     ]

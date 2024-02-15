@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('diary', '0009_remove_goalsentry_created_at_goalsentry_from_date'),
+        ("diary", "0009_remove_goalsentry_created_at_goalsentry_from_date"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='goalsentry',
-            name='from_date',
+            model_name="goalsentry",
+            name="from_date",
             field=models.DateField(),
         ),
     ]

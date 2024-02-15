@@ -5,6 +5,56 @@ description = ""
 authors = ["Dominik <dominik.szlaza.1@gmail.pl>"]
 readme = "README.md"
 
+[tool.poetry.group.dev.dependencies]
+bandit = "^1.7.7"
+black = "^24.2.0"
+flake8 = "^7.0.0"
+isort = "^5.13.2"
+mypy = "^1.8.0"
+pre-commit = "^3.6.1"
+pylint = "^3.0.3"
+pytest = "^8.0.0"
+toml-sort = "^0.23.1"
+commitizen = "^3.14.1"
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+
+[tool.isort]
+combine_as_imports = "true"
+include_trailing_comma = "true"
+known_first_party = ["src"]
+line_length = 120
+multi_line_output = 3
+
+[tool.mypy]
+disallow_untyped_defs = true
+ignore_missing_imports = true
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pylint.BASIC]
+good-names = "id,i,j,k"
+
+[tool.pylint.DESIGN]
+max-args = 5
+max-attributes = 8
+min-public-methods = 1
+
+[tool.pylint.FORMAT]
+max-line-length = 120
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = "missing-docstring, logging-fstring-interpolation"
+
+[tool.pylint.SIMILARITIES]
+ignore-comments = "yes"
+ignore-docstrings = "yes"
+ignore-imports = "yes"
+min-similarity-lines = 6
+
 [tool.poetry.dependencies]
 python = "^3.10"
 celery = "5.2.3"
@@ -26,12 +76,10 @@ attrs = "21.4.0"
 billiard = "3.6.4.0"
 certifi = "2021.10.8"
 cffi = "1.15.0"
-charset-normalizer = "2.0.12"
 click = "8.1.2"
 click-didyoumean = "0.3.0"
 click-plugins = "1.1.1"
 click-repl = "0.2.0"
-colorama = "0.4.4"
 coreapi = "2.3.3"
 coreschema = "0.0.4"
 cryptography = "36.0.1"
@@ -53,9 +101,7 @@ kombu = "5.2.4"
 markupsafe = "2.1.1"
 oauthlib = "3.2.0"
 openapi-codec = "1.3.2"
-packaging = "21.3"
 pika = "0.13.0"
-pluggy = "1.0.0"
 prometheus-client = "0.13.1"
 prompt-toolkit = "3.0.28"
 py = "1.11.0"
@@ -63,12 +109,10 @@ pyamqp = "0.1.0.7"
 pycparser = "2.21"
 pyjwt = "2.3.0"
 pyparsing = "3.0.7"
-pytest = "7.1.1"
 python3-openid = "3.2.0"
 pytz = "2021.3"
 pyyaml = "6.0"
 redis = "4.3.1"
-requests = "2.27.1"
 requests-oauthlib = "1.3.1"
 setuptools = "59.6.0"
 simplejson = "3.17.6"
@@ -85,6 +129,12 @@ whitenoise = "6.1.0"
 wrapt = "1.14.1"
 zope-event = "4.5.0"
 zope-interface = "5.4.0"
+django-stubs = "^4.2.7"
+djangorestframework-stubs = "^3.14.5"
+packaging = "^23.2"
+colorama = "^0.4.6"
+requests = "^2.31.0"
+charset-normalizer = "^3.3.2"
 
 [build-system]
 requires = ["poetry-core"]

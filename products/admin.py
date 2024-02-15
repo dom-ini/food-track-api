@@ -9,7 +9,7 @@ def make_verified(modeladmin, request, queryset):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'is_verified']
+    list_display = ["name", "is_verified"]
     actions = [make_verified]
 
 

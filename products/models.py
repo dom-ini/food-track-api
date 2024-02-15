@@ -5,12 +5,12 @@ from django.utils import timezone
 
 class Product(models.Model):
     class Meta:
-        verbose_name = 'Product'
-        verbose_name_plural = 'Products'
+        verbose_name = "Product"
+        verbose_name_plural = "Products"
 
     added_by = models.ForeignKey(
-        'auth.User',
-        related_name='product',
+        "auth.User",
+        related_name="product",
         null=False,
         on_delete=models.CASCADE,
     )
@@ -29,7 +29,7 @@ class Product(models.Model):
         null=False,
         default=0,
         validators=[
-            validators.MinValueValidator(0, message='kcal for 100 must be greater than 0'),
+            validators.MinValueValidator(0, message="kcal for 100 must be greater than 0"),
         ],
     )
     protein = models.DecimalField(
@@ -38,7 +38,7 @@ class Product(models.Model):
         null=False,
         default=0,
         validators=[
-            validators.MinValueValidator(0, message='protein for 100 must be greater than 0'),
+            validators.MinValueValidator(0, message="protein for 100 must be greater than 0"),
         ],
     )
     carb = models.DecimalField(
@@ -47,7 +47,7 @@ class Product(models.Model):
         null=False,
         default=0,
         validators=[
-            validators.MinValueValidator(0, message='carbo for 100 must be greater than 0'),
+            validators.MinValueValidator(0, message="carbo for 100 must be greater than 0"),
         ],
     )
     sugar = models.DecimalField(
@@ -56,7 +56,7 @@ class Product(models.Model):
         null=False,
         default=0,
         validators=[
-            validators.MinValueValidator(0, message='sugar for 100 must be greater than 0'),
+            validators.MinValueValidator(0, message="sugar for 100 must be greater than 0"),
         ],
     )
     fat = models.DecimalField(
@@ -65,7 +65,7 @@ class Product(models.Model):
         null=False,
         default=0,
         validators=[
-            validators.MinValueValidator(0, message='fat for 100 must be greater than 0'),
+            validators.MinValueValidator(0, message="fat for 100 must be greater than 0"),
         ],
     )
     saturated_fat = models.DecimalField(
@@ -74,7 +74,7 @@ class Product(models.Model):
         null=False,
         default=0,
         validators=[
-            validators.MinValueValidator(0, message='saturated fat for 100 must be greater than 0'),
+            validators.MinValueValidator(0, message="saturated fat for 100 must be greater than 0"),
         ],
     )
     portion_size = models.DecimalField(
@@ -83,18 +83,12 @@ class Product(models.Model):
         null=False,
         default=0,
         validators=[
-            validators.MinValueValidator(0, message='portion size must be greater than 0'),
+            validators.MinValueValidator(0, message="portion size must be greater than 0"),
         ],
     )
-    is_verified = models.BooleanField(
-        default=False
-    )
-    created_at = models.DateTimeField(
-        editable=False
-    )
-    is_deleted = models.BooleanField(
-        default=False
-    )
+    is_verified = models.BooleanField(default=False)
+    created_at = models.DateTimeField(editable=False)
+    is_deleted = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -102,5 +96,4 @@ class Product(models.Model):
         return super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.name} - kcal {self.kcal}/B {self.protein}' \
-               f'/WW {self.carb}/T {self.fat}'
+        return f"{self.name} - kcal {self.kcal}/B {self.protein}" f"/WW {self.carb}/T {self.fat}"

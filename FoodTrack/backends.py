@@ -1,4 +1,5 @@
 from django.core.mail.backends.base import BaseEmailBackend
+
 from FoodTrack.tasks import async_send_messages
 
 

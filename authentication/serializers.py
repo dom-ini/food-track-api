@@ -1,5 +1,5 @@
 from dj_rest_auth.registration.serializers import RegisterSerializer
-from dj_rest_auth.serializers import UserDetailsSerializer, LoginSerializer, PasswordResetSerializer
+from dj_rest_auth.serializers import LoginSerializer, PasswordResetSerializer, UserDetailsSerializer
 from rest_framework import serializers
 
 from authentication.forms import CustomPasswordResetForm
@@ -11,7 +11,7 @@ class CustomUserDetailsSerializer(UserDetailsSerializer):
     last_name = None
 
     class Meta(UserDetailsSerializer.Meta):
-        fields = ['id', 'email']
+        fields = ["id", "email"]
 
 
 class CustomLoginSerializer(LoginSerializer):
@@ -29,5 +29,5 @@ class CustomPasswordResetSerializer(PasswordResetSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['id', 'user']
-        read_only_fields = ['id', 'user']
+        fields = ["id", "user"]
+        read_only_fields = ["id", "user"]

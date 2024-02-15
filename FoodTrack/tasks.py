@@ -5,5 +5,5 @@ from FoodTrack.celery import app
 
 @app.task(retry_backoff=True, serializer="pickle")
 def async_send_messages(email_messages):
-    conn = get_connection(backend='django.core.mail.backends.smtp.EmailBackend')
+    conn = get_connection(backend="django.core.mail.backends.smtp.EmailBackend")
     conn.send_messages(email_messages)

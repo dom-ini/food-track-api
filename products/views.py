@@ -10,12 +10,16 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     filterset_class = ProductFilter
     ordering_fields = [
-        'name', 'kcal', 'protein', 'carb', 'fat',
+        "name",
+        "kcal",
+        "protein",
+        "carb",
+        "fat",
     ]
-    ordering = ['name']
+    ordering = ["name"]
 
     def get_queryset(self):
-        added_by = self.request.query_params.get('added_by')
+        added_by = self.request.query_params.get("added_by")
         if not added_by:
             return Product.objects.filter(is_verified=True)
         return self.get_products_added_by_current_user()
@@ -26,9 +30,8 @@ class ProductViewSet(viewsets.ModelViewSet):
             return Product.objects.filter(added_by=user, is_verified=True)
         return Product.objects.none()
 
-
     def get_permissions(self):
-        if self.action in ['update', 'partial_update', 'destroy']:
+        if self.action in ["update", "partial_update", "destroy"]:
             self.permission_classes += [IsAdminUser]
         return super().get_permissions()
 
