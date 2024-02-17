@@ -15,6 +15,7 @@ https://github.com/dom-ini/food-track-front/
 
 - Python 3.10
 - Django 4.2
+- Celery
 - PostgreSQL 15
 - Docker
 
