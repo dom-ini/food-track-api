@@ -20,7 +20,7 @@ urlpatterns = [
 
 schema_url = path(
     "api/v1/openapi/",
-    get_schema_view(title="FoodTrack", description="API for FoodTrack - online food diary"),
+    get_schema_view(title="food_track", description="API for food_track - online food diary"),
     name="openapi-schema",
 )
 docs_url = path(

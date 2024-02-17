@@ -1,6 +1,6 @@
 from django.core.mail import get_connection
 
-from FoodTrack.celery import app
+from food_track.celery import app
 
 
 @app.task(retry_backoff=True, serializer="pickle")

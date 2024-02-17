@@ -1,25 +1,14 @@
-[tool.poetry]
-name = "food-track-api"
-version = "0.1.0"
-description = ""
-authors = ["Dominik <dominik.szlaza.1@gmail.pl>"]
-readme = "README.md"
-
-[tool.poetry.group.dev.dependencies]
-bandit = "^1.7.7"
-black = "^24.2.0"
-flake8 = "^7.0.0"
-isort = "^5.13.2"
-mypy = "^1.8.0"
-pre-commit = "^3.6.1"
-pylint = "^3.0.3"
-pytest = "^8.0.0"
-toml-sort = "^0.23.1"
-commitizen = "^3.14.1"
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
 
 [tool.black]
 line-length = 120
 target-version = ["py310"]
+
+[tool.django-stubs]
+django_settings_module = "food_track.settings"
+django_version = "4.2"
 
 [tool.isort]
 combine_as_imports = "true"
@@ -31,61 +20,51 @@ multi_line_output = 3
 [tool.mypy]
 disallow_untyped_defs = true
 ignore_missing_imports = true
+plugins = "mypy_django_plugin.main"
 python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true
 
-[tool.pylint.BASIC]
-good-names = "id,i,j,k"
-
-[tool.pylint.DESIGN]
-max-args = 5
-max-attributes = 8
-min-public-methods = 1
-
-[tool.pylint.FORMAT]
-max-line-length = 120
-
-[tool.pylint."MESSAGES CONTROL"]
-disable = "missing-docstring, logging-fstring-interpolation"
-
-[tool.pylint.SIMILARITIES]
-ignore-comments = "yes"
-ignore-docstrings = "yes"
-ignore-imports = "yes"
-min-similarity-lines = 6
+[tool.poetry]
+authors = ["Dominik <dominik.szlaza.1@gmail.pl>"]
+description = ""
+name = "food-track-api"
+readme = "README.md"
+version = "0.1.0"
 
 [tool.poetry.dependencies]
-python = "^3.10"
-celery = "5.2.3"
-dj-rest-auth = "2.2.3"
-django = "4.0.3"
-django-allauth = "0.47.0"
-django-environ = "0.8.1"
-django-filter = "21.1"
-djangorestframework = "3.13.1"
-django-rest-swagger = "2.2.0"
-djangorestframework-simplejwt = "5.1.0"
-django-cors-headers = "3.12.0"
-psycopg2 = "2.9.3"
 amqp = "5.1.0"
-asgiref = "3.5.0"
+asgiref = "^3.5.0"
 async-timeout = "4.0.2"
 atomicwrites = "1.4.0"
 attrs = "21.4.0"
 billiard = "3.6.4.0"
+celery = "5.2.3"
 certifi = "2021.10.8"
 cffi = "1.15.0"
+charset-normalizer = "^3.3.2"
 click = "8.1.2"
 click-didyoumean = "0.3.0"
 click-plugins = "1.1.1"
 click-repl = "0.2.0"
+colorama = "^0.4.6"
 coreapi = "2.3.3"
 coreschema = "0.0.4"
 cryptography = "36.0.1"
 defusedxml = "0.7.1"
 deprecated = "1.2.13"
+dj-rest-auth = "2.2.3"
+django = "4.2.10"
+django-allauth = "0.47.0"
+django-cors-headers = "3.12.0"
+django-environ = "0.8.1"
+django-filter = "21.1"
 django-rest-framework = "0.1.0"
+django-rest-swagger = "2.2.0"
+django-stubs = "^4.2.7"
+djangorestframework = "3.13.1"
+djangorestframework-simplejwt = "5.1.0"
+djangorestframework-stubs = "^3.14.5"
 dnspython = "2.2.1"
 eventlet = "0.33.0"
 flower = "1.0.0"
@@ -101,18 +80,22 @@ kombu = "5.2.4"
 markupsafe = "2.1.1"
 oauthlib = "3.2.0"
 openapi-codec = "1.3.2"
+packaging = "^23.2"
 pika = "0.13.0"
 prometheus-client = "0.13.1"
 prompt-toolkit = "3.0.28"
+psycopg2 = "2.9.3"
 py = "1.11.0"
 pyamqp = "0.1.0.7"
 pycparser = "2.21"
 pyjwt = "2.3.0"
 pyparsing = "3.0.7"
+python = "^3.10"
 python3-openid = "3.2.0"
 pytz = "2021.3"
 pyyaml = "6.0"
 redis = "4.3.1"
+requests = "^2.31.0"
 requests-oauthlib = "1.3.1"
 setuptools = "59.6.0"
 simplejson = "3.17.6"
@@ -129,13 +112,44 @@ whitenoise = "6.1.0"
 wrapt = "1.14.1"
 zope-event = "4.5.0"
 zope-interface = "5.4.0"
-django-stubs = "^4.2.7"
-djangorestframework-stubs = "^3.14.5"
-packaging = "^23.2"
-colorama = "^0.4.6"
-requests = "^2.31.0"
-charset-normalizer = "^3.3.2"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.poetry.group.dev.dependencies]
+bandit = "^1.7.7"
+black = "^24.2.0"
+commitizen = "^3.14.1"
+flake8 = "^7.0.0"
+isort = "^5.13.2"
+mypy = "1.7.0"
+pre-commit = "^3.6.1"
+psycopg2-binary = "^2.9.9"
+pylint = "^3.0.3"
+pylint-django = "^2.5.5"
+pytest = "^8.0.0"
+toml-sort = "^0.23.1"
+
+[tool.pylint.BASIC]
+good-names = "id,i,j,k"
+
+[tool.pylint.DESIGN]
+max-args = 5
+max-attributes = 8
+max-parents = 14
+min-public-methods = 1
+
+[tool.pylint.FORMAT]
+max-line-length = 120
+
+[tool.pylint.MASTER]
+ignore = [
+  "manage.py",
+  "migrations"
+]
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = "missing-docstring, logging-fstring-interpolation"
+
+[tool.pylint.SIMILARITIES]
+ignore-comments = "yes"
+ignore-docstrings = "yes"
+ignore-imports = "yes"
+min-similarity-lines = 6

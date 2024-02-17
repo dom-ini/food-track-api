@@ -4,7 +4,7 @@ from products.models import Product
 
 
 @admin.action(description="Zweryfikuj wybrane produkty")
-def make_verified(modeladmin, request, queryset):
+def make_verified(_modeladmin, _request, queryset):
     queryset.update(is_verified=True)
 
 

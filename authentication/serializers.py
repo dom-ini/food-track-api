@@ -14,15 +14,15 @@ class CustomUserDetailsSerializer(UserDetailsSerializer):
         fields = ["id", "email"]
 
 
-class CustomLoginSerializer(LoginSerializer):
+class CustomLoginSerializer(LoginSerializer):  # pylint: disable=W0223
     username = None
 
 
-class CustomRegisterSerializer(RegisterSerializer):
+class CustomRegisterSerializer(RegisterSerializer):  # pylint: disable=W0223
     username = None
 
 
-class CustomPasswordResetSerializer(PasswordResetSerializer):
+class CustomPasswordResetSerializer(PasswordResetSerializer):  # pylint: disable=W0223
     password_reset_form_class = CustomPasswordResetForm
 
 

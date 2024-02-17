@@ -62,7 +62,7 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
-ROOT_URLCONF = "FoodTrack.urls"
+ROOT_URLCONF = "food_track.urls"
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "FoodTrack.wsgi.application"
+WSGI_APPLICATION = "food_track.wsgi.application"
 
 
 # Database
@@ -112,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "auth.User"  # pylint: disable=E5141
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -208,13 +209,13 @@ JWT_AUTH_REFRESH_COOKIE = "food-track-refresh-token"
 if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 else:
-    EMAIL_BACKEND = "FoodTrack.backends.AsyncEmailBackend"
+    EMAIL_BACKEND = "food_track.backends.AsyncEmailBackend"
 EMAIL_HOST = env("EMAIL_HOST")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = env("EMAIL_PORT", cast=int)
 EMAIL_USE_TLS = env("EMAIL_USE_TLS", cast=bool)
-DEFAULT_FROM_EMAIL = "FoodTrack"
+DEFAULT_FROM_EMAIL = "food_track"
 
 CELERY_BROKER_URL = env("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = env("CELERY_RESULT_BACKEND")

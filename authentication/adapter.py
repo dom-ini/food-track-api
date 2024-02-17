@@ -1,7 +1,6 @@
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.conf import settings
-from django.contrib.auth.models import User
 
 
 class CustomAccountAdapter(DefaultAccountAdapter):
@@ -14,8 +13,9 @@ class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
         social_user = sociallogin.user
         if social_user.id or not social_user.email:
             return
+        user_model = settings.AUTH_USER_MODEL
         try:
-            user = User.objects.get(email=social_user.email)
+            user = user_model.objects.get(email=social_user.email)
             sociallogin.connect(request, user)
-        except User.DoesNotExist:
+        except user_model.DoesNotExist:
             pass

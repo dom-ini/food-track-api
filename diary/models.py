@@ -1,5 +1,6 @@
 import datetime
 
+from django.conf import settings
 from django.core import validators
 from django.db import models
 from django.utils import timezone
@@ -23,7 +24,7 @@ class DiaryEntry(models.Model):
         (SUPPER, "supper"),
     )
     user = models.ForeignKey(
-        "auth.User",
+        settings.AUTH_USER_MODEL,
         related_name="diary_entry",
         null=False,
         on_delete=models.CASCADE,
@@ -79,7 +80,7 @@ class GoalsEntry(models.Model):
         verbose_name = "Goals entry"
         verbose_name_plural = "Goals entries"
 
-    user = models.ForeignKey("auth.User", related_name="goals_entry", null=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="goals_entry", null=False, on_delete=models.CASCADE)
     daily_kcal_goal = models.IntegerField(
         null=False,
         blank=False,

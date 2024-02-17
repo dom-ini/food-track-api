@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core import validators
 from django.db import models
 from django.utils import timezone
@@ -9,7 +10,7 @@ class Product(models.Model):
         verbose_name_plural = "Products"
 
     added_by = models.ForeignKey(
-        "auth.User",
+        settings.AUTH_USER_MODEL,
         related_name="product",
         null=False,
         on_delete=models.CASCADE,

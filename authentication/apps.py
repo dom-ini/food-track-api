@@ -6,4 +6,4 @@ class AuthConfig(AppConfig):
     name = "authentication"
 
     def ready(self):
-        import authentication.signals  # noqa: F401
+        import authentication.signals  # noqa: F401, pylint: disable=C0415,W0611
