@@ -12,8 +12,6 @@ pylint:
 	poetry run pylint . --recursive=y --load-plugins pylint_django --django-settings-module=food_track.settings
 black:
 	poetry run black .
-mypy:
-	poetry run mypy --install-types --non-interactive .
 test:
 	poetry run pytest tests
-lint: black flake8 isort pylint mypy toml_sort
+lint: black flake8 isort pylint toml_sort

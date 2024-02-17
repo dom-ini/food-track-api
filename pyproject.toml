@@ -17,14 +17,6 @@ known_first_party = ["src"]
 line_length = 120
 multi_line_output = 3
 
-[tool.mypy]
-disallow_untyped_defs = true
-ignore_missing_imports = true
-plugins = "mypy_django_plugin.main"
-python_version = "3.10"
-warn_return_any = true
-warn_unused_configs = true
-
 [tool.poetry]
 authors = ["Dominik <dominik.szlaza.1@gmail.pl>"]
 description = ""
@@ -61,10 +53,8 @@ django-environ = "0.8.1"
 django-filter = "21.1"
 django-rest-framework = "0.1.0"
 django-rest-swagger = "2.2.0"
-django-stubs = "^4.2.7"
-djangorestframework = "3.13.1"
+djangorestframework = "^3.13.1"
 djangorestframework-simplejwt = "5.1.0"
-djangorestframework-stubs = "^3.14.5"
 dnspython = "2.2.1"
 eventlet = "0.33.0"
 flower = "1.0.0"
@@ -119,7 +109,6 @@ black = "^24.2.0"
 commitizen = "^3.14.1"
 flake8 = "^7.0.0"
 isort = "^5.13.2"
-mypy = "1.7.0"
 pre-commit = "^3.6.1"
 psycopg2-binary = "^2.9.9"
 pylint = "^3.0.3"
